@@ -26,7 +26,7 @@ plugin-yml `0.5.2` still supports Gradle 5.0+.
 
 ```groovy
 plugins {
-    id 'net.minecrell.plugin-yml.bukkit' version '0.6.0'
+    id 'net.minecrell.plugin-yml.bukkit' version '0.5.3'
 }
 
 dependencies {
@@ -42,34 +42,38 @@ bukkit {
     // description = 'This is a test plugin'
     // website = 'https://example.com'
     // author = 'Notch'
-    
+
     // Plugin main class (required)
     main = 'com.example.testplugin.TestPlugin'
-    
+
+    // Mark plugin for supporting Folia
+    foliaSupported = true
+
     // API version (should be set for 1.13+)
     apiVersion = '1.13'
-    
+
     // Other possible properties from plugin.yml (optional)
-    load = 'STARTUP' // or 'POSTWORLD' 
+    load = 'STARTUP' // or 'POSTWORLD'
     authors = ['Notch', 'Notch2']
+    contributors = ['Notch3', 'Notch4']
     depend = ['WorldEdit']
     softDepend = ['Essentials']
     loadBefore = ['BrokenPlugin']
     prefix = 'TEST'
     defaultPermission = 'OP' // 'TRUE', 'FALSE', 'OP' or 'NOT_OP'
     provides = ['TestPluginOldName', 'TestPlug']
-    
+
     commands {
         test {
             description = 'This is a test command!'
             aliases = ['t']
             permission = 'testplugin.test'
             usage = 'Just run the command!'
-            // permissionMessage = 'You may not test this command!' 
+            // permissionMessage = 'You may not test this command!'
         }
         // ...
     }
-    
+
     permissions {
         'testplugin.*' {
             children = ['testplugin.test'] // Defaults permissions to true
@@ -91,7 +95,7 @@ bukkit {
 ```kotlin
 plugins {
     java // or `kotlin("jvm") version "1.8.21"`
-    id("net.minecrell.plugin-yml.bukkit") version "0.6.0"
+    id("net.minecrell.plugin-yml.bukkit") version "0.5.3"
 }
 
 dependencies {
@@ -108,34 +112,38 @@ bukkit {
     // description = "This is a test plugin"
     // website = "https://example.com"
     // author = "Notch"
-    
+
     // Plugin main class (required)
     main = "com.example.testplugin.TestPlugin"
-    
+
+    // Mark plugin for supporting Folia
+    foliaSupported = true
+
     // API version (should be set for 1.13+)
     apiVersion = "1.13"
-    
+
     // Other possible properties from plugin.yml (optional)
-    load = BukkitPluginDescription.PluginLoadOrder.STARTUP // or POSTWORLD 
+    load = BukkitPluginDescription.PluginLoadOrder.STARTUP // or POSTWORLD
     authors = listOf("Notch", "Notch2")
+    contributors = listOf("Notch3", "Notch4")
     depend = listOf("WorldEdit")
     softDepend = listOf("Essentials")
     loadBefore = listOf("BrokenPlugin")
     prefix = "TEST"
     defaultPermission = BukkitPluginDescription.Permission.Default.OP // TRUE, FALSE, OP or NOT_OP
     provides = listOf("TestPluginOldName", "TestPlug")
-    
+
     commands {
         register("test") {
             description = "This is a test command!"
             aliases = listOf("t")
             permission = "testplugin.test"
             usage = "Just run the command!"
-            // permissionMessage = "You may not test this command!" 
+            // permissionMessage = "You may not test this command!"
         }
         // ...
     }
-    
+
     permissions {
         register("testplugin.*") {
             children = listOf("testplugin.test") // Defaults permissions to true
@@ -161,10 +169,10 @@ import net.minecrell.pluginyml.paper.PaperPluginDescription
 
 plugins {
     id 'java'
-    id 'net.minecrell.plugin-yml.paper' version '0.6.0'
+    id 'net.minecrell.plugin-yml.paper' version '0.5.3'
 }
 
-// NOTE = Paper does not support plugin libraries without additional setup!
+// NOTE: Paper does not support plugin libraries without additional setup!
 // Please see "Plugin Libraries JSON" in the README for instructions.
 dependencies {
     // Downloaded from Maven Central when the plugin is loaded
@@ -275,7 +283,7 @@ import net.minecrell.pluginyml.paper.PaperPluginDescription
 
 plugins {
     java // or `kotlin("jvm") version "1.8.21"`
-    id("net.minecrell.plugin-yml.paper") version "0.6.0"
+    id("net.minecrell.plugin-yml.paper") version "0.5.3"
 }
 
 // NOTE: Paper does not support plugin libraries without additional setup!
@@ -284,7 +292,7 @@ dependencies {
     // Downloaded from Maven Central when the plugin is loaded
     // library(kotlin("stdlib")) // When using kotlin
     library("com.google.code.gson", "gson", "2.10.1") // All platform plugins
-    paperLibrary("com.google.code.gson", "gson", "2.10.1") // Paper only 
+    paperLibrary("com.google.code.gson", "gson", "2.10.1") // Paper only
 
     // Make use of classes included by `bootstrapDependencies` and `serverDependencies` sections below
     //   compileOnly("com.sk89q.worldedit", "worldedit-bukkit", "7.2.14")
@@ -386,7 +394,7 @@ paper {
 
 ```groovy
 plugins {
-    id 'net.minecrell.plugin-yml.bungee' version '0.6.0'
+    id 'net.minecrell.plugin-yml.bungee' version '0.5.3'
 }
 
 dependencies {
@@ -400,10 +408,10 @@ bungee {
     // name = 'TestPlugin'
     // version = '1.0'
     // description = 'This is a test plugin'
-    
+
     // Plugin main class (required)
     main = 'com.example.testplugin.TestPlugin'
-    
+
     // Other possible properties from bungee.yml
     author = 'Notch'
     depends = ['Yamler']
@@ -418,7 +426,7 @@ bungee {
 ```kotlin
 plugins {
     java // or `kotlin("jvm") version "1.8.21"`
-    id("net.minecrell.plugin-yml.bungee") version "0.6.0"
+    id("net.minecrell.plugin-yml.bungee") version "0.5.3"
 }
 
 dependencies {
@@ -433,10 +441,10 @@ bungee {
     // name = "TestPlugin"
     // version = "1.0"
     // description = "This is a test plugin"
-    
+
     // Plugin main class (required)
     main = "com.example.testplugin.TestPlugin"
-    
+
     // Other possible properties from bungee.yml
     author = "Notch"
     depends = setOf("Yamler")
@@ -452,7 +460,7 @@ bungee {
 
 ```groovy
 plugins {
-    id 'net.minecrell.plugin-yml.nukkit' version '0.6.0'
+    id 'net.minecrell.plugin-yml.nukkit' version '0.5.3'
 }
 
 nukkit {
@@ -462,19 +470,19 @@ nukkit {
     // description = 'This is a test plugin'
     // website = 'https://example.com'
     // author = 'Notch'
-    
+
     // Plugin main class and api (required)
     main = 'com.example.testplugin.TestPlugin'
     api = ['1.0.0']
-    
+
     // Other possible properties from nukkit.yml (optional)
-    load = 'STARTUP' // or 'POSTWORLD' 
+    load = 'STARTUP' // or 'POSTWORLD'
     authors = ['Notch', 'Notch2']
     depend = ['PlotSquared']
     softDepend = ['LuckPerms']
     loadBefore = ['BrokenPlugin']
     prefix = 'TEST'
-    
+
     commands {
         test {
             description = 'This is a test command!'
@@ -484,7 +492,7 @@ nukkit {
         }
         // ...
     }
-    
+
     permissions {
         'testplugin.*' {
             description = 'Allows you to run all testplugin commands'
@@ -506,7 +514,7 @@ nukkit {
 ```kotlin
 plugins {
     java // or `kotlin("jvm") version "1.8.21"`
-    id("net.minecrell.plugin-yml.nukkit") version "0.6.0"
+    id("net.minecrell.plugin-yml.nukkit") version "0.5.3"
 }
 
 nukkit {
@@ -516,19 +524,19 @@ nukkit {
     // description = "This is a test plugin"
     // website = "https://example.com"
     // author = "Notch"
-    
+
     // Plugin main class and api (required)
     main = "com.example.testplugin.TestPlugin"
     api = listOf("1.0.0")
-    
+
     // Other possible properties from nukkit.yml (optional)
-    load = NukkitPluginDescription.PluginLoadOrder.STARTUP // or POSTWORLD 
+    load = NukkitPluginDescription.PluginLoadOrder.STARTUP // or POSTWORLD
     authors = listOf("Notch", "Notch2")
     depend = listOf("PlotSquared")
     softDepend = listOf("LuckPerms")
     loadBefore = listOf("BrokenPlugin")
     prefix = "TEST"
-    
+
     commands {
         register("test") {
             description = "This is a test command!"
@@ -538,7 +546,7 @@ nukkit {
         }
         // ...
     }
-    
+
     permissions {
         register("testplugin.*") {
             description = "Allows you to run all testplugin commands"
@@ -546,7 +554,7 @@ nukkit {
                 register("testplugin.test") {
                     description = "Allows you to run the test command"
                     default = NukkitPluginDescription.Permission.Default.OP // TRUE, FALSE, OP or NOT_OP
-                }            
+                }
             }
         }
     }
